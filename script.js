@@ -257,6 +257,23 @@ function createAirplane() {
     if (clickAeroplaneCount === 10) {
       showFloatingVideo();
     }
+
+    if (clickAeroplaneCount === 20) {
+      const videoContainer = document.getElementById("floating-video");
+      if (videoContainer) {
+        const iframe = videoContainer.querySelector("iframe");
+        if (iframe) {
+          iframe.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
+        }
+      }
+    }
+
+    if (clickAeroplaneCount === 30) {
+      const videoContainer = document.getElementById("floating-video");
+      if (videoContainer) {
+        videoContainer.remove();
+      }
+    }
   });
 
   document.body.appendChild(plane);

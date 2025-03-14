@@ -308,4 +308,15 @@ function showFloatingVideo() {
   setInterval(moveVideoRandomly, 5000);
   // Initial random placement
   moveVideoRandomly();
+
+  // The API calls this function when the player's state changes
+  function onPlayerStateChange(event) {
+    if (event.data === YT.PlayerState.ENDED) {
+      // Remove the floating video div when the video ends
+      const videoContainer = document.getElementById("floating-video");
+      if (videoContainer) {
+        videoContainer.remove();
+      }
+    }
+  }
 }

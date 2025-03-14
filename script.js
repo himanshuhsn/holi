@@ -276,7 +276,7 @@ function showFloatingVideo() {
   const iframe = document.createElement("iframe");
   iframe.width = "280";
   iframe.height = "158";
-  iframe.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
+  iframe.src = "https://www.youtube.com/embed/3vTYkWO6CUY?autoplay=1";
   iframe.title = "YouTube video player";
   iframe.frameBorder = "0";
   iframe.allow =

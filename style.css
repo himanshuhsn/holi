@@ -255,3 +255,13 @@ button:hover {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+#floating-video {
+  position: fixed;
+  width: 560px;
+  height: 315px;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensures it stays on top of other elements */
+  transition: top 5s linear, left 5s linear; /* Smooth movement */
+}

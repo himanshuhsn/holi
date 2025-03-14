@@ -236,6 +236,7 @@ createProgressiveCharacters();
 setInterval(createHoliGraphic, 3000);
 
 // Airplane system
+let clickAeroplaneCount = 0;
 function createAirplane() {
   const svgNS = "http://www.w3.org/2000/svg";
   const plane = document.createElementNS(svgNS, "svg");
@@ -245,9 +246,16 @@ function createAirplane() {
   plane.style.top = `${Math.random() * 50 + 10}vh`;
 
   plane.addEventListener("click", () => {
+    clickAeroplaneCount++;
+
     // Create color burst on click
     for (let i = 0; i < 10; i++) {
       setTimeout(() => createHoliGraphic(), i * 10);
+    }
+
+    // When 10 clicks have been reached, show the floating video
+    if (clickAeroplaneCount === 10) {
+      showFloatingVideo();
     }
   });
 
@@ -258,3 +266,46 @@ function createAirplane() {
 // Initialize airplane system
 createAirplane(); // Immediate test
 setInterval(createAirplane, 40000); // Regular flights
+
+function showFloatingVideo() {
+  // Create a container for the floating video
+  const videoContainer = document.createElement("div");
+  videoContainer.setAttribute("id", "floating-video");
+
+  // Create the YouTube iframe
+  const iframe = document.createElement("iframe");
+  iframe.width = "280";
+  iframe.height = "158";
+  iframe.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
+  iframe.title = "YouTube video player";
+  iframe.frameBorder = "0";
+  iframe.allow =
+    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+  iframe.allowFullscreen = true;
+
+  videoContainer.appendChild(iframe);
+  document.body.appendChild(videoContainer);
+
+  // Function to move the video container to a random position
+  function moveVideoRandomly() {
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+    const videoWidth = videoContainer.offsetWidth;
+    const videoHeight = videoContainer.offsetHeight;
+
+    // Calculate maximum left and top so the video stays in view
+    const maxLeft = windowWidth - videoWidth;
+    const maxTop = windowHeight - videoHeight;
+
+    const randomLeft = Math.random() * maxLeft;
+    const randomTop = Math.random() * maxTop;
+
+    videoContainer.style.left = randomLeft + "px";
+    videoContainer.style.top = randomTop + "px";
+  }
+
+  // Move the video every 5 seconds
+  setInterval(moveVideoRandomly, 5000);
+  // Initial random placement
+  moveVideoRandomly();
+}

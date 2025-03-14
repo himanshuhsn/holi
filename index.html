@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Holi Celebration</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+      <h1 class="animated-title">
+        <span id="greeting">Happy Holi</span><br /><span class="subtitle"
+          >Let's Paint the Digital Sky!</span
+        >
+      </h1>
+
+      <div class="input-container">
+        <input type="text" id="nameInput" placeholder="Enter your name" />
+        <button onclick="updateGreeting()">Personalize!</button>
+      </div>
+
+      <canvas id="particleCanvas"></canvas>
+    
+    <div id="facts-container">
+      <div class="fact-bubble"></div>
+    </div>
+
+    <!-- SVG Graphics -->
+    <svg style="display: none;" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <symbol id="pichkari" viewBox="0 0 100 100">
+        <path d="M20 50 Q40 30 60 50 Q40 70 20 50" fill="#FF5722"/>
+        <rect x="55" y="45" width="30" height="10" rx="2" fill="#795548"/>
+      </symbol>
+      <symbol id="gulal" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="45" fill="#E91E63"/>
+        <path d="M30 50a20 20 0 110 40h40a20 20 0 110-40" fill="#F44336"/>
+      </symbol>
+      
+      <!-- New Playful Characters -->
+      <symbol id="kid1" viewBox="0 0 80 120">
+        <!-- Body -->
+        <rect x="35" y="40" width="10" height="40" fill="#4CAF50"/>
+        <!-- Head -->
+        <circle cx="40" cy="30" r="10" fill="#FFCCBC"/>
+        <!-- Turban -->
+        <path d="M30 25 L40 15 L50 25 L40 35 Z" fill="#FF5722"/>
+        <!-- Arm -->
+        <path id="arm1" class="pichkari-arm" d="M35 60 L20 40 L25 35 L40 50" fill="#FFCCBC"/>
+        <use href="#pichkari" x="15" y="30" width="20" height="20"/>
+      </symbol>
+
+      <symbol id="kid2" viewBox="0 0 80 120">
+        <!-- Body -->
+        <path d="M40 40 Q45 80 35 80 Q30 60 40 40" fill="#E91E63"/>
+        <!-- Head -->
+        <circle cx="40" cy="30" r="10" fill="#FFCCBC"/>
+        <!-- Ponytail -->
+        <path d="M50 25 Q55 15 60 20" fill="#000" stroke="#000"/>
+        <!-- Arms -->
+        <path class="pichkari-arm" d="M45 50 L60 30 L65 35 L50 55" fill="#FFCCBC"/>
+        <path class="pichkari-arm" d="M35 50 L20 30 L15 35 L30 55" fill="#FFCCBC"/>
+        <use href="#pichkari" x="55" y="25" width="20" height="20"/>
+        <use href="#pichkari" x="5" y="25" width="20" height="20"/>
+      </symbol>
+
+      <symbol id="dog" viewBox="0 0 80 60">
+        <!-- Body -->
+        <path d="M20 40 Q30 20 50 40 Q60 50 70 30" fill="#FAFAFA"/>
+        <!-- Spots -->
+        <circle cx="35" cy="35" r="4" fill="#616161"/>
+        <circle cx="45" cy="30" r="3" fill="#616161"/>
+        <!-- Head -->
+        <circle cx="60" cy="25" r="10" fill="#FAFAFA"/>
+        <!-- Eyes -->
+        <circle cx="63" cy="23" r="1.5" fill="#000"/>
+        <!-- Tail -->
+        <path d="M15 35 Q10 20 5 25" fill="#FAFAFA"/>
+        <!-- Flower -->
+        <path d="M65 20 q2 -8 6 0 q-3 4 0 6 q-6 -2 -6 -6" fill="#FFD600"/>
+        <!-- Collar -->
+        <rect x="55" y="30" width="10" height="3" fill="#F44336"/>
+      </symbol>
+      
+      <symbol id="holi-plane" viewBox="0 0 150 50">
+        <!-- Plane body -->
+        <path d="M0 25 L100 25 Q115 25 125 15 L150 25 L125 35 Q115 25 100 25 L0 25" 
+              fill="#F44336"/>
+        <!-- Wings with rangoli pattern -->
+        <path d="M20 15 L40 5 L60 15" stroke="#FFEB3B" stroke-width="2" fill="none"/>
+        <path d="M20 35 L40 45 L60 35" stroke="#4CAF50" stroke-width="2" fill="none"/>
+        <!-- Color bombs -->
+        <circle cx="110" cy="25" r="5" fill="#9C27B0"/>
+        <circle cx="130" cy="25" r="5" fill="#2196F3"/>
+      </symbol>
+    </svg>
+
+    <script src="script.js"></script>
+  </body>
+</html>
